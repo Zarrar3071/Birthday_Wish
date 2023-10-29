@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Greeting Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #FFD700, #FF69B4, #87CEFA, #FFA500);
+            background-size: 300% 300%;
+            animation: gradientBackground 8s ease infinite;
+            transition: background 1s ease;
+        }
+
+        @keyframes gradientBackground {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .card {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 80%;
+            margin: 0 auto;
+            margin-top: 50px;
+            box-shadow: 0px 0px 20px #00ff04, 0px 0px 10px #e7ff00, 0px 0px 30px blue;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Birthday Greeting</h2>
+        <p id="nameAnimation">Dear <span id="animatedName"></span>,</p>
+        <p>On this special day, I want to wish you a very happy birthday!</p>
+        <p>May your day be filled with joy, laughter, and unforgettable moments.</p>
+        <p>"Happy Birthday! </p>
+        <p>Wishing you a fantastic day,"</p>
+      <p>🍰 🎂 🍰</p>
+      <audio controls>
+        <source src="Shayad - Love Aaj Kal 128 Kbps.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    </div>
+
+    <script>
+        const animatedName = document.getElementById('animatedName');
+        const name = "Abu bakar";
+        let index = 0;
+
+        function animateName() {
+            if (index < name.length) {
+                animatedName.textContent += name[index];
+                index++;
+            } else {
+                animatedName.textContent = '';
+                index = 0;
+            }
+            setTimeout(animateName, 200); // Adjust the time (in milliseconds) between displaying each letter
+        }
+
+        animateName();
+    </script>
+</body>
+</html>
